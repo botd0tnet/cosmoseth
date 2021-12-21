@@ -1,3 +1,3 @@
-sudo git clone https://github.com/botd0tnet/cosmoseth
-cd cosmoseth
-bash costoeth.sh
+sudo git clone https://github.com/botd0tnet/cosmoseth<br/>
+cd cosmoseth<br/>
+bash costoeth.sh<br/>
