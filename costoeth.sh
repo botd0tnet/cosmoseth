@@ -2,13 +2,10 @@
 
 for(( i=1; i <=55; i++ ))
 do
-	txhash=$(echo 1234jqka12 | umeed tx peggy send-to-eth 0xBaba0eA6D8B8D9CD19f6F1AeD2cDB76888D273D4 10uumee 1uumee --from BotDotNet --chain-id umee-alpha-mainnet-2 -y)
+	txhash=$(echo 1234jqka12 | umeed tx peggy send-to-eth 0xBaba0eA6D8B8D9CD19f6F1AeD2cDB76888D273D4 10uumee 1uumee --from BotDotNet --chain-id umee-alpha-mainnet-2 -y | jq -r .txhash)
 	sleep 5
-	txhash1=$(cut -d':' -f 3 <<<"$txhash")
-	txhash2=$(cut -d',' -f 1 <<<"$txhash1")
-	txhash3=$(cut -d'"' -f 2 <<<"$txhash2")
-	echo $txhash3 >> /root/costoeth_tx.txt
-	printf "%b\n" "$txhash3"
+	echo $txhash >> /root/costoeth_tx.txt
+	printf "%b\n" "$txhash"
 	sleep 60
 done
 
