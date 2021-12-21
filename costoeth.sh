@@ -6,7 +6,8 @@ do
 	sleep 5
 	txhash1=$(cut -d':' -f 3 <<<"$txhash")
 	txhash2=$(cut -d',' -f 1 <<<"$txhash1")
-	printf "%s\n" $txhash2 >> /root/costoeth_tx.txt
+	txhash3=$(cut -d'"' -f 2 <<<"$txhash2")
+	echo $txhash3 >> /root/costoeth_tx.txt
 	sleep 10
 done
 
@@ -23,6 +24,5 @@ do
 	printf '%s\n' "" >> /root/costoeth_raw.txt
 	echo $(umeed q tx $p | grep raw_log) >> /root/costoeth_raw.txt
 	printf '%s\n' "---" >> /root/costoeth_raw.txt
-	printf '%s\n' "" >> /root/costoeth_raw.txt
 	sleep 5
 done </root/costoeth_tx.txt
