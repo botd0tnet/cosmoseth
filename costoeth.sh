@@ -8,6 +8,7 @@ do
 	txhash2=$(cut -d',' -f 1 <<<"$txhash1")
 	txhash3=$(cut -d'"' -f 2 <<<"$txhash2")
 	echo $txhash3 >> /root/costoeth_tx.txt
+	printf "%b\n" "$txhash3"
 	sleep 60
 done
 
